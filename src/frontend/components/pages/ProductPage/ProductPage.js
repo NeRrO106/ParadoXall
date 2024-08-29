@@ -82,10 +82,10 @@ const ProductPage = ({ toggleCart }) => {
                                 </button>
                                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <li>
-                                        <a className="dropdown-item" onClick={() => handleSelectedOption('Pui')}>Pui</a>
+                                        <button className="dropdown-item" onClick={() => handleSelectedOption('Pui')}>Pui</button>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" onClick={() => handleSelectedOption('Vita')}>Vita</a>
+                                        <button className="dropdown-item" onClick={() => handleSelectedOption('Vita')}>Vita</button>
                                     </li>
                                 </ul>
                             </div>

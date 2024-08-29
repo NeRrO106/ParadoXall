@@ -1,0 +1,30 @@
+.navbar-custom {
+    background-color: var(--bg-dark);
+}
+
+.navbar-custom .navbar-brand {
+    font-weight: bold;
+    font-size: var(--font-size-large);
+    text-shadow: 
+        -1px -1px 0 var(--text-dark),
+         1px -1px 0 var(--text-dark),
+        -1px  1px 0 var(--text-dark),
+         1px  1px 0 var(--text-dark);
+}
+
+.button-custom {
+    font-weight: bold;
+    font-size: var(--font-size-large);
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.button-custom.active {
+    color: var(--highlight) !important;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.button-custom:hover {
+    color: var(--highlight);
+}

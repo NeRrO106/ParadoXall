@@ -1,0 +1,11 @@
+.meniu {
+    padding: var(--padding);
+    background-color: rgba(51, 51, 51, 0.5);
+    text-align: center;
+}
+
+.meniu h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-light);
+}

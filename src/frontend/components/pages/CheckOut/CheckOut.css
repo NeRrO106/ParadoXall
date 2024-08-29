@@ -1,0 +1,113 @@
+.checkout-header {
+    padding: 10px;
+    background-color: rgba(51, 51, 51, 0.5);
+    text-align: center;
+}
+
+.checkout-header h1 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.custom-ul{
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+.custom-ul li{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.custom-ul li p{
+    margin-top: -10px;
+    margin-bottom: -5px;
+}
+
+.subtotal-custom{
+    color: black !important;
+    text-align: start !important;
+    margin-left: 100px !important;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.info-custom {
+    text-align: center;
+    background-color: rgba(244, 52, 52, 0.5);
+    max-width: 700px;
+    margin-left: 300px;
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.checkout-form {
+    background-color: rgba(244, 52, 52, 0.5);
+    max-width: 370px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 1rem;
+}
+
+.form-control, .form-select {
+    background-color: var(--bg-dark);
+    width: 100%;
+    max-width: 340px;
+    border: none;
+    margin: 0 auto;
+    padding: 0.5rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.form-control:hover, .form-select:hover {
+    background-color: black;
+    color: #fff;
+}
+
+.form-label {
+    font-weight: bold;
+    color: black;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .checkout-form {
+        padding: 0.5rem;
+        margin-left: 40px;
+        margin-right: 10px;
+    }
+
+    .custom-ul {
+        flex-direction: column;
+    }
+
+    .custom-ul li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .custom-ul li img{
+        margin-bottom: 10px;
+    }
+
+    .form-control, .form-select {
+        width: 100%;
+    }
+
+    .btn-custom {
+        width: 100%;
+        padding: 0.5rem;
+    }
+    .info-custom{
+        width: 50%;
+        margin: auto;
+        width: fit-content;
+    }
+}
+

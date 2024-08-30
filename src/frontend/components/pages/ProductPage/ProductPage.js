@@ -13,7 +13,7 @@ const ProductPage = ({ toggleCart }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/products/');
+                const response = await fetch('https://paradoxall-80370d8dd2e4.herokuapp.com/api/products/');
                 const data = await response.json();
                 const foundProduct = data.find(p => p.product_id === parseInt(productId));
                 setProduct(foundProduct);

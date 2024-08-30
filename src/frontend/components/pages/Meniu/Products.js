@@ -8,7 +8,7 @@ const ProductList = ({ filter }) =>{
     const navigate = useNavigate(); 
 
     useEffect(() =>{
-        const url = 'http://127.0.0.1:8000/api/products/';
+        const url = 'https://paradoxall-80370d8dd2e4.herokuapp.com/api/products/';
 
         fetch(url)
             .then(response => response.json())

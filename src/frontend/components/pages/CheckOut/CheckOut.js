@@ -64,7 +64,7 @@ const Checkout = () =>{
             }))
         };
         try{
-            const response = await fetch('http://127.0.0.1:8000/api/create-order/', {
+            const response = await fetch('https://paradoxall-80370d8dd2e4.herokuapp.com/api/create-order/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

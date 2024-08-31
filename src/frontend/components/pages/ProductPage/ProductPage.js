@@ -11,10 +11,10 @@ const ProductPage = ({ toggleCart }) => {
     const { addToCart } = useCart();
 
     useEffect(() => {
-        const fetchProduct = () => {
+        const fetchProduct = async() => {
             try {
-                const response = fetch('https://paradoxall-80370d8dd2e4.herokuapp.com/api/products/');
-                const data = response.json();
+                const response = await fetch('https://paradoxall-80370d8dd2e4.herokuapp.com/api/products/');
+                const data = await response.json();
                 const foundProduct = data.find(p => p.product_id === parseInt(productId));
                 setProduct(foundProduct);
             } catch (error) {

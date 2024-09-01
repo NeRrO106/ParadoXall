@@ -76,7 +76,7 @@ const ProductPage = ({ toggleCart }) => {
                             <p>Ingrediente:</p>
                             <p>{product.description}</p>
                         </div>
-                        {product.category === 'ciorbe' && (
+                        {product.sub_description === 'pui-vita' && (
                             <div className="dropdown">
                                 <button
                                     className="btn dropdown-custom dropdown-toggle"

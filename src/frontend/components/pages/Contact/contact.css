@@ -1,17 +1,6 @@
-
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuLcfLAKZPGO-1WHX_H2PhXr9PXwzFSkX_tA&s');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-}
-
 .contact {
     padding: 15px;
-    background-color: rgba(51, 51, 51, 0.5);
+    background-color: var(--bg-light-dark);
     text-align: center;
 }
   
@@ -22,12 +11,6 @@ body {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    background-color: transparent;
     gap: 20px;
 }
 

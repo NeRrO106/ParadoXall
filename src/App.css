@@ -1,5 +1,6 @@
 :root {
     --bg-dark: rgba(51, 51, 51, 0.7);
+    --bg-light-dark: rgba(51,51,51,0.5);
     --bg-light: #fff;
     --text-light: #fff;
     --text-dark: #000;
@@ -59,4 +60,51 @@ body {
     color: var(--text-light);
     font-weight: bold;
     font-size: var(--font-size-large);
+}
+@media (min-width: 770px) and (max-width: 1000px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .logo img{
+        width: 300px !important;
+        height: 300px !important;
+    }
+}
+@media (max-width: 768px) {
+    .contact h1 {
+        font-size: var(--font-size-medium);
+    }
+
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .info p {
+        font-size: var(--font-size-small);
+    }
+
+    .info {
+        width: 90%;
+    }
+}
+@media (max-width: 480px) {
+    .contact h1 {
+        font-size: var(--font-size-small);
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .info p {
+        font-size: var(--font-size-small);
+    }
+
+    .info {
+        padding: calc(var(--padding) / 2);
+        margin: var(--margin);
+    }
 }

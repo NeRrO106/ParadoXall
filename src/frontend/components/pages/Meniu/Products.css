@@ -71,3 +71,28 @@
     background-color: #f43434;
     color: #fff; 
 }
+@media (max-width: 768px) {
+    .card {
+        margin: 1rem auto;
+        max-width: 90%;
+    }
+
+    .card-img-top {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-title,
+    .card-text {
+        font-size: 18px;
+    }
+
+    .btn-custom-card {
+        padding: 0.5rem 1rem;
+        font-size: 16px;
+    }
+}

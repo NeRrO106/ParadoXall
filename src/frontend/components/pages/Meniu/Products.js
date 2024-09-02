@@ -19,7 +19,7 @@ const ProductList = ({ filter }) =>{
                 setFilteredProducts(data);
             })
             .catch(error => console.error('Error fetchin products', error));
-    },[]);
+    },[apiUrl]);
 
     useEffect(() =>{
         if(filter === 'all'){

@@ -16,14 +16,15 @@ const ProductPage = ({ toggleCart }) => {
         console.log('Product ID:', productId);
         const fetchProduct = async() => {
             try {
-                const url = `${apiUrl}/products/${productId}`;
+                const url = `${apiUrl}/products/`;
                 const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
                 console.log('Fetched Data:', data);
-                setProduct(data);
+                const foundProduct = data.find(p => p.product_id === parseInt(productId));
+                setProduct(foundProduct);
             } catch (error) {
                 console.error('Error fetching products', error);
             }

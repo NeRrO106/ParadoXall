@@ -1,0 +1,48 @@
+.politici-container{
+    position: relative;
+    margin: 0 10px;
+}
+.politici-container h1{
+    padding: 25px;
+    font-size: 2rem;
+    text-align: center;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+.politici-container h2{
+    padding: 10px;
+    font-size: 1.5rem;
+    background-color: var(--bg-light-dark);
+    color: var(--text-light);
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.politici-container h5{
+    padding: 15px;
+    font-size: 1.1rem;
+    background-color: var(--bg-light-dark);
+    color: var(--text-light);
+}
+.politici-container p{
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: var(--bg-light-dark);
+    color: var(--text-light);
+    margin: 0;
+}
+.politici-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.politici-container ul li{
+    margin-bottom: 10px;
+}
+.politici-container a{
+    color: var(--text-light);
+    text-decoration: none;
+}
+.politici-container a:hover{
+    color: var(--highlight);
+    text-decoration: underline;
+}

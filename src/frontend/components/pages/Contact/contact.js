@@ -17,7 +17,7 @@ function contact() {
           />
         </div>
         <div className="info">
-          <p>Facebook: <a href='https://www.facebook.com/semaforbistro' target="_blank" rel="noopener noreferrer">Link</a></p>
+          <p>Urmareste-ne: <a href='https://www.facebook.com/semaforbistro' target="_blank" rel="noopener noreferrer">Facebook</a></p>
           <p>Telefon: 0724 855 575</p>
           <p>Locatie: Tudor Vladimirescu, Medgidia, Romania, 905600</p>
           <p>Email: lasemafor.medgidia@gmail.com</p>

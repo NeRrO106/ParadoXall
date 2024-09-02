@@ -7,6 +7,8 @@ const Checkout = () =>{
     const { cartItems, clearCart } = useCart();
     const navigate = useNavigate();
 
+    const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
     const [error, setError] = useState('');
 
     const [formData, setFormData] = useState({
@@ -60,11 +62,11 @@ const Checkout = () =>{
             order_items: cartItems.map(item =>({
                 product: item.product_id,
                 quantity: item.quantity,
-                selected_option: item.selectedOption
+                selected_option: item.selectedOption || ''
             }))
         };
         try{
-            const response = await fetch('https://paradoxall-80370d8dd2e4.herokuapp.com/api/create-order/', {
+            const response = await fetch(`{apiUrl}/create-order/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

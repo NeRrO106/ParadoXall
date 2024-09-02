@@ -7,8 +7,10 @@ const ProductList = ({ filter }) =>{
     const [filteredProducts, setFilteredProducts] = useState([]);
     const navigate = useNavigate(); 
 
+    const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
     useEffect(() =>{
-        const url = 'https://paradoxall-80370d8dd2e4.herokuapp.com/api/products/';
+        const url = `{apiUrl}/products/`;
 
         fetch(url)
             .then(response => response.json())

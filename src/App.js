@@ -10,6 +10,9 @@ import ProductPage from '../src/frontend/components/pages/ProductPage/ProductPag
 import CartPage from './frontend/components/pages/Cart/CartPage';
 import { CartProvider } from './frontend/components/pages/Cart/Cart';
 import Checkout from './frontend/components/pages/CheckOut/CheckOut';
+import Footer from './frontend/components/footer/footer';
+import Politici from './frontend/components/footer/politici';
+import Termeni from './frontend/components/footer/termeni';
 
 
 function App() {
@@ -30,8 +33,11 @@ function App() {
             <Route path = "contact" element={<Contact />} />
             <Route path = "product/:productId" element={<ProductPage toggleCart={toggleCart}/>} />
             <Route path = "checkout" element={<Checkout/>} />
+            <Route path = "politici" element={<Politici/>} />
+            <Route path = "termeni-conditii" element={<Termeni/>} />
           </Routes>
           <CartPage isOpen={isCartOpen} onClose={toggleCart}/>
+          <Footer/>
         </CartProvider>
     </Router>
   );

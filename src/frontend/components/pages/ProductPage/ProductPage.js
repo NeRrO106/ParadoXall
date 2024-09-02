@@ -10,26 +10,27 @@ const ProductPage = ({ toggleCart }) => {
     const [quantity, setQuantity] = useState(1);
     const { addToCart } = useCart();
 
+    const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
     useEffect(() => {
         console.log('Product ID:', productId);
         const fetchProduct = async() => {
             try {
-                const url = 'https://paradoxall-80370d8dd2e4.herokuapp.com/api/products/';
+                const url = `${apiUrl}/products/${productId}`;
                 const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
                 console.log('Fetched Data:', data);
-                const foundProduct = data.find(p => p.product_id === parseInt(productId));
-                setProduct(foundProduct);
+                setProduct(data);
             } catch (error) {
                 console.error('Error fetching products', error);
             }
         };
     
         fetchProduct();
-    }, [productId]);
+    }, [productId, apiUrl]);
     
 
     const handleSelectedOption = (option) => {
@@ -41,7 +42,11 @@ const ProductPage = ({ toggleCart }) => {
 
     const handleAddToCart = () => {
         if (product) {
-            addToCart({ ...product, quantity, selectedOption });
+            const productToAdd = { ...product, quantity };
+            if(selectedOption !== "Selecteaza optiune"){
+                productToAdd.selectedOption = selectedOption;
+            }
+            addToCart(productToAdd)
             toggleCart();
         }
     };

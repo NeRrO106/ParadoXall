@@ -10,7 +10,7 @@ const ProductList = ({ filter }) =>{
     const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
     useEffect(() =>{
-        const url = `{apiUrl}/products/`;
+        const url = `${apiUrl}/products/`;
 
         fetch(url)
             .then(response => response.json())

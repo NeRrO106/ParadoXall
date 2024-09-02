@@ -66,7 +66,7 @@ const Checkout = () =>{
             }))
         };
         try{
-            const response = await fetch(`{apiUrl}/create-order/`, {
+            const response = await fetch(`${apiUrl}/create-order/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

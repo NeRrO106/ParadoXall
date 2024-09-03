@@ -18,9 +18,9 @@ function contact() {
         </div>
         <div className="info">
           <p>Urmareste-ne: <a href='https://www.facebook.com/semaforbistro' target="_blank" rel="noopener noreferrer">Facebook</a></p>
-          <p>Telefon: 0724 855 575</p>
+          <p>Telefon: <a href="tel:+40724 855 575">0724 855 575</a> </p>
           <p>Locatie: Tudor Vladimirescu, Medgidia, Romania, 905600</p>
-          <p>Email: lasemafor.medgidia@gmail.com</p>
+          <p>Email: <a href="mailto:lasemafor.medgidia@gmail.com">lasemafor.medgidia@gmail.com</a> </p>
         </div>
       </div>
     </div>

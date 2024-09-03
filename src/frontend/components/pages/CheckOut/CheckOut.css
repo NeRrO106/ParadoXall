@@ -16,6 +16,7 @@
     width: 75%;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-dark);
 }
 .custom-ul li{
     margin-top: 5px;
@@ -29,7 +30,7 @@
 
 .subtotal-custom{
     color: black !important;
-    text-align: start !important;
+    text-align: center !important;
     margin-left: 100px !important;
     font-weight: bold;
     font-size: 30px;
@@ -44,7 +45,11 @@
     font-weight: bold;
     font-size: 0.9rem;
 }
-
+.checkout-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .checkout-form {
     background-color: rgba(244, 52, 52, 0.5);
     max-width: 370px;
@@ -56,7 +61,6 @@
 .form-control, .form-select {
     background-color: var(--bg-dark);
     width: 100%;
-    max-width: 340px;
     border: none;
     margin: 0 auto;
     padding: 0.5rem;
@@ -75,12 +79,16 @@
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
-
+.form-check-label a{
+    text-decoration: none;
+    color: black;
+}
+.form-check-label a:hover{
+    color: var(--text-light);
+}
 @media (max-width: 768px) {
     .checkout-form {
-        padding: 0.5rem;
-        margin-left: 40px;
-        margin-right: 10px;
+        max-width: calc(100% - 20px);
     }
 
     .custom-ul {

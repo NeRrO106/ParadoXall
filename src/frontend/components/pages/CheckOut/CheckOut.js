@@ -21,13 +21,14 @@ const Checkout = () =>{
         info: '',
         paymentMethod: 'cash',
         deliveryMethod: 'delivery',
+        acceptTerms: false,
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [name]: value,
+            [name]: type === 'checked' ? checked : value,
         });
     };
 
@@ -39,7 +40,10 @@ const Checkout = () =>{
         else if(!formData.email) message = 'Te rog sa introduci email-ul tau!';
         else if(!formData.phoneNumber) message = 'Te rog sa introduci numarul de telefon!';
         else if(formData.deliveryMethod === 'delivery' && (!formData.address || !formData.city || !formData.region)){
-            message = 'Te rog completeaza datele de livrare'
+            message = 'Te rog completeaza datele de livrare';
+        }
+        else if(!formData.acceptTerms){
+            message = 'Trebuie sa accepti termenii si conditiile!';
         }
 
         if(message){
@@ -127,117 +131,129 @@ const Checkout = () =>{
                 </ul>
                 <p className='subtotal-custom'>Subtotal: {subTotal} lei</p>
             </div>
-            <form className='checkout-form' onSubmit={handleCheckOut}>
-                {error && <div className="alert alert-danger">{error}</div>}
-                <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Nume(*)</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        className="form-control" 
-                        value={formData.name} 
-                        onChange={handleChange} 
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email(*)</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        className="form-control" 
-                        value={formData.email} 
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="phoneNumber" className="form-label">Număr de Telefon(*)</label>
-                    <input 
-                        type="phoneNumber" 
-                        id="phoneNumber" 
-                        name="phoneNumber" 
-                        className="form-control" 
-                        value={formData.phoneNumber} 
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="deliveryMethod" className="form-label">Modalitate de livrare</label>
-                    <select 
-                        id="deliveryMethod" 
-                        name="deliveryMethod" 
-                        className="form-select" 
-                        value={formData.deliveryMethod} 
-                        onChange={handleChange}
-                    >
-                        <option value="delivery">La domiciliu</option>
-                        <option value="pickup">Ridicare personala</option>
-                    </select>
-                </div>
-                {formData.deliveryMethod === 'delivery' &&(
-                    <>
-                        <div className="mb-3">
-                            <label htmlFor="address" className="form-label">Adresă(*)</label>
-                            <textarea 
-                                id="address" 
-                                name="address" 
-                                className="form-control" 
-                                value={formData.address} 
-                                onChange={handleChange} 
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="city" className="form-label">Oras(*)</label>
-                                <input 
-                                    type="text" 
-                                    id="city" 
-                                    name="city" 
+            <div className='checkout-form-container'>
+                <form className='checkout-form' onSubmit={handleCheckOut}>
+                    {error && <div className="alert alert-danger">{error}</div>}
+                    <div className="mb-3">
+                        <label htmlFor="name" className="form-label">Nume(*)</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            className="form-control" 
+                            value={formData.name} 
+                            onChange={handleChange} 
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Email(*)</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            className="form-control" 
+                            value={formData.email} 
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="phoneNumber" className="form-label">Număr de Telefon(*)</label>
+                        <input 
+                            type="phoneNumber" 
+                            id="phoneNumber" 
+                            name="phoneNumber" 
+                            className="form-control" 
+                            value={formData.phoneNumber} 
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="deliveryMethod" className="form-label">Modalitate de livrare</label>
+                        <select 
+                            id="deliveryMethod" 
+                            name="deliveryMethod" 
+                            className="form-select" 
+                            value={formData.deliveryMethod} 
+                            onChange={handleChange}
+                        >
+                            <option value="delivery">La domiciliu</option>
+                            <option value="pickup">Ridicare personala</option>
+                        </select>
+                    </div>
+                    {formData.deliveryMethod === 'delivery' &&(
+                        <>
+                            <div className="mb-3">
+                                <label htmlFor="address" className="form-label">Adresă(*)</label>
+                                <textarea 
+                                    id="address" 
+                                    name="address" 
                                     className="form-control" 
-                                    value={formData.city} 
+                                    value={formData.address} 
                                     onChange={handleChange} 
                                 />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="region" className="form-label">Judet(*)</label>
-                                <input 
-                                    type="text" 
-                                    id="region" 
-                                    name="region" 
-                                    className="form-control" 
-                                    value={formData.region} 
-                                    onChange={handleChange} 
-                                />
-                        </div>
-                    </>
-                )}
-                <div className="mb-3">
-                    <label htmlFor="paymentMethod" className="form-label">Metodă de Plată</label>
-                    <select 
-                        id="paymentMethod" 
-                        name="paymentMethod" 
-                        className="form-select" 
-                        value={formData.paymentMethod} 
-                        onChange={handleChange}
-                    >
-                        <option value="cash">Numerar</option>
-                        <option value="creditCard">Card</option>
-                    </select>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="info" className="form-label">Alte informatii</label>
-                    <textarea 
-                        id="info"
-                        name="info"
-                        className="form-control"
-                        value={formData.info}
-                        onChange={handleChange}
-                    />
-                </div>
-                <button type="submit" className="btn btn-custom">
-                    Finalizeaza
-                </button>
-            </form>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="city" className="form-label">Oras(*)</label>
+                                    <input 
+                                        type="text" 
+                                        id="city" 
+                                        name="city" 
+                                        className="form-control" 
+                                        value={formData.city} 
+                                        onChange={handleChange} 
+                                    />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="region" className="form-label">Judet(*)</label>
+                                    <input 
+                                        type="text" 
+                                        id="region" 
+                                        name="region" 
+                                        className="form-control" 
+                                        value={formData.region} 
+                                        onChange={handleChange} 
+                                    />
+                            </div>
+                        </>
+                    )}
+                    <div className="mb-3">
+                        <label htmlFor="paymentMethod" className="form-label">Metodă de Plată</label>
+                        <select 
+                            id="paymentMethod" 
+                            name="paymentMethod" 
+                            className="form-select" 
+                            value={formData.paymentMethod} 
+                            onChange={handleChange}
+                        >
+                            <option value="cash">Numerar</option>
+                            <option value="creditCard">Card</option>
+                        </select>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="info" className="form-label">Alte informatii</label>
+                        <textarea 
+                            id="info"
+                            name="info"
+                            className="form-control"
+                            value={formData.info}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <input 
+                            type="checkbox"
+                            className="form-check-input"
+                            id="acceptTerms"
+                            checked={formData.acceptTerms}
+                            onChange={handleChange}
+                        />
+                        <label htmlFor="acceptTerms" className='form-check-label'>Accept <a href='/termeni-conditii'>termenii si conditiile</a></label>
+                    </div>
+                    <button type="submit" className="btn btn-custom">
+                        Finalizeaza
+                    </button>
+                </form>
+            </div>
             <p className='info-custom'>Ce este marcat cu (*) indica faptul ca sunt campuri care trebuiesc completate obligatoriu</p>
         </div>
     )

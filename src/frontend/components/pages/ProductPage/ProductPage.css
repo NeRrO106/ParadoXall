@@ -24,7 +24,7 @@
 
 .img-fluid {
     box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
+    border-radius: 30px;
     max-height: 400px;
     object-fit: cover;
     width: 100%;

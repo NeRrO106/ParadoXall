@@ -26,7 +26,7 @@ function Footer(){
                         <p>Contact:</p>
                         <p>Urmareste-ne: <a href="https://www.facebook.com/semaforbistro" target="_blank" rel="noopener noreferrer">Facebook</a> </p>
                         <p>Email: <a href="mailto:lasemafor.medgidia@gmail.com">lasemafor.medgidia@gmail.com</a> </p>
-                        <p>Telefon: 0724 855 575</p>
+                        <p>Telefon: <a href="tel:+40724 855 575">0724 855 575</a> </p>
                         <p>Adresa: Tudor Vladimirescu, Medgidia, Romania, 905600</p>
                         <p>
                             Ore de functionare:
@@ -39,9 +39,9 @@ function Footer(){
                             title="location"
                             width="300" 
                             height="300" 
-                            allowfullscreen="" 
+                            allowFullScreen="" 
                             loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
+                            referrerPolicy="no-referrer-when-downgrade"
                         >
                         </iframe>
                     </div>

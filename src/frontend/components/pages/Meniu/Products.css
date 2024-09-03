@@ -19,13 +19,12 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 .card-img-top{
-    margin-top: 10px;
-    margin-left: 5px;
     border-radius: 50px;
     width: 95%;
     height: 90%;
     max-height: 200px;
     object-fit: cover;
+    margin: 0.5rem auto;
 }
 
 .card-body{
@@ -80,6 +79,7 @@
     .card-img-top {
         max-width: 100%;
         height: auto;
+        margin: 0.5rem auto;
     }
 
     .card-body {

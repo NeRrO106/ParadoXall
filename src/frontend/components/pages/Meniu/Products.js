@@ -31,6 +31,7 @@ const ProductList = ({ filter }) =>{
     }, [filter, products])
 
     const handleClick = (productId) => {
+        window.scrollTo(0, 0);
         navigate(`/product/${productId}`);
     };
 

@@ -116,7 +116,7 @@ const Checkout = () =>{
             <div className='checkout-header'>
                 <h1>Finalizeaza comanda</h1>
             </div>
-            <div className='border border-primary'>
+            <div className='border'>
                 <ul className="list-group mb-4 custom-ul">
                     {cartItems.map((item, index) => (
                         <li key={index} className="list-group-item d-flex align-items-center h-25">

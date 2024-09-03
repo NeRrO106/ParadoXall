@@ -9,7 +9,10 @@
     font-weight: bold;
     color: #fff;
 }
-
+.border{
+    background-color: var(--bg-dark) !important;
+    border-color:  var(--bg-dark) !important;
+}
 .custom-ul{
     margin-top: 10px;
     margin-left: 50px;
@@ -29,9 +32,8 @@
 }
 
 .subtotal-custom{
-    color: black !important;
-    text-align: center !important;
-    margin-left: 100px !important;
+    color: #fff;
+    text-align: center;
     font-weight: bold;
     font-size: 30px;
 }

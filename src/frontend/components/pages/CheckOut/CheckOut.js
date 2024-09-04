@@ -28,7 +28,7 @@ const Checkout = () =>{
         const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [name]: type === 'checked' ? checked : value,
+            [name]: type === 'checkbox' ? checked : value,
         });
     };
 
@@ -244,6 +244,7 @@ const Checkout = () =>{
                             type="checkbox"
                             className="form-check-input"
                             id="acceptTerms"
+                            name="acceptTerms"
                             checked={formData.acceptTerms}
                             onChange={handleChange}
                         />

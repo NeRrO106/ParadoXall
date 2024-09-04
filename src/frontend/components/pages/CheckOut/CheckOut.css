@@ -9,9 +9,18 @@
     font-weight: bold;
     color: #fff;
 }
+.checkout-content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
 .border{
     background-color: var(--bg-dark) !important;
     border-color:  var(--bg-dark) !important;
+    flex: 1;
+    max-width: 300px;
+    order: 1;
 }
 .custom-ul{
     margin-top: 10px;
@@ -19,7 +28,12 @@
     width: 75%;
     display: flex;
     flex-direction: column;
-    background-color: var(--bg-dark);
+}
+.custom-ul p{
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: start;
 }
 .custom-ul li{
     margin-top: 5px;
@@ -40,9 +54,10 @@
 
 .info-custom {
     text-align: center;
-    background-color: rgba(244, 52, 52, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     max-width: 700px;
-    margin-left: 300px;
+    margin-top: -0.6rem;
+    margin-left: 350px;
     color: var(--text-dark);
     font-weight: bold;
     font-size: 0.9rem;
@@ -51,23 +66,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 2;
+    max-width: 800px;
+    width: 100%;
+    order: 2;
 }
 .checkout-form {
-    background-color: rgba(244, 52, 52, 0.5);
-    max-width: 370px;
+    background-color: rgba(255, 255, 255, 0.5);
     margin: 10px auto;
     text-align: center;
     padding: 1rem;
+    width: 100%;
+    max-width: 600px;
 }
 
 .form-control, .form-select {
     background-color: var(--bg-dark);
-    width: 100%;
     border: none;
     margin: 0 auto;
-    padding: 0.5rem;
     color: #fff;
     font-weight: bold;
+    width: 100%;
 }
 
 .form-control:hover, .form-select:hover {
@@ -81,18 +100,33 @@
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
+.form-check-label{
+    color: black;
+    font-weight: bold;
+}
 .form-check-label a{
     text-decoration: none;
     color: black;
 }
 .form-check-label a:hover{
     color: var(--text-light);
+    text-decoration: underline;
 }
 @media (max-width: 768px) {
     .checkout-form {
         max-width: calc(100% - 20px);
     }
-
+    .checkout-content{
+        flex-direction: column;
+    }
+    .border{
+        order: 1;
+        max-width: 100%;
+    }
+    .checkout-form-container{
+        order: 2;
+        max-width: 100%;
+    }
     .custom-ul {
         flex-direction: column;
     }

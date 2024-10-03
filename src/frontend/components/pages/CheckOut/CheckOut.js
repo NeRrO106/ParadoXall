@@ -15,14 +15,27 @@ const Checkout = () =>{
         name: '',
         email: '',
         phoneNumber: '',
-        address: '',
+        street: '',
+        block: '',
+        nr:'',
         city: '',
         region: 'Constanta',
         info: '',
         paymentMethod: 'cash',
         deliveryMethod: 'delivery',
         acceptTerms: false,
+        newsLetter: false,
     });
+
+    const minimumOrders = {
+        "castelu": 120,
+        "castelul": 120,
+        "satu nou": 100,
+        "cuza vodă": 100,
+        "mircea vodă": 150,
+        "tortomanu": 120,
+        "valea dacilor": 100,
+    };
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -39,25 +52,32 @@ const Checkout = () =>{
         if(!formData.name) message = 'Te rog sa introduci numele tau!';
         else if(!formData.email) message = 'Te rog sa introduci email-ul tau!';
         else if(!formData.phoneNumber) message = 'Te rog sa introduci numarul de telefon!';
-        else if(formData.deliveryMethod === 'delivery' && (!formData.address || !formData.city || !formData.region)){
+        else if(formData.deliveryMethod === 'delivery' && (!formData.street || !formData.nr || !formData.city)){
             message = 'Te rog completeaza datele de livrare';
         }
         else if(!formData.acceptTerms){
             message = 'Trebuie sa accepti termenii si conditiile!';
         }
-
+        if(formData.deliveryMethod === 'delivery'){
+            const cityKey = formData.city.toLowerCase();
+            if(minimumOrders[cityKey] && subTotal < minimumOrders[cityKey]){
+                message = `Comanda minima pentru localitatea ${formData.city} este de ${minimumOrders[cityKey]} lei.`;
+            }
+        }
         if(message){
             window.scrollTo(0, 0);
             setError(message);
             return;
         }
 
+        const fullAddress = `${formData.street}, Bloc: ${formData.block}, Numar: ${formData.nr}`
+
         const orderData = {
             customer_name: formData.name,
             phone_number: formData.phoneNumber,
             email: formData.email,
             delivery_methods: formData.deliveryMethod,
-            address: formData.deliveryMethod === 'pickup' ? 'ridicare' : formData.address,
+            address: formData.deliveryMethod === 'pickup' ? 'ridicare' : fullAddress,
             city: formData.deliveryMethod === 'pickup' ? 'ridicare' : formData.city,
             region: formData.region,
             payment_methods: formData.paymentMethod,
@@ -185,34 +205,43 @@ const Checkout = () =>{
                         {formData.deliveryMethod === 'delivery' &&(
                             <>
                                 <div className="mb-3">
-                                    <label htmlFor="address" className="form-label">Adresă(*)</label>
-                                    <textarea 
-                                        id="address" 
-                                        name="address" 
-                                        className="form-control" 
-                                        value={formData.address} 
-                                        onChange={handleChange} 
+                                    <label htmlFor="street" className="form-label">Strada(*)</label>
+                                    <textarea
+                                        id="street"
+                                        name="street"
+                                        className="form-control"
+                                        value={formData.street}
+                                        onChange={handleChange}
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="city" className="form-label">Oras(*)</label>
+                                    <label htmlFor="block" className="form-label">Bloc</label>
+                                    <textarea
+                                        id="block"
+                                        name="block"
+                                        className="form-control"
+                                        value={formData.block}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="nr" className="form-label">Numar/Apartament(*)</label>
+                                    <textarea
+                                        id="nr"
+                                        name="nr"
+                                        className="form-control"
+                                        value={formData.nr}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="city" className="form-label">Localitate(*)</label>
                                         <input 
                                             type="text" 
                                             id="city" 
                                             name="city" 
                                             className="form-control" 
                                             value={formData.city} 
-                                            onChange={handleChange} 
-                                        />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="region" className="form-label">Judet(*)</label>
-                                        <input 
-                                            type="text" 
-                                            id="region" 
-                                            name="region" 
-                                            className="form-control" 
-                                            value={formData.region} 
                                             onChange={handleChange} 
                                         />
                                 </div>
@@ -240,6 +269,17 @@ const Checkout = () =>{
                                 value={formData.info}
                                 onChange={handleChange}
                             />
+                        </div>
+                        <div className="mb-3">
+                            <input 
+                                type="checkbox"
+                                className="form-check-input"
+                                id="newsLetter"
+                                name="newsLetter"
+                                checked={formData.newsLetter}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="newsLetter" className='form-check-label'>Doresc sa primesc oferte pe email si sms</label>
                         </div>
                         <div className="mb-3">
                             <input 

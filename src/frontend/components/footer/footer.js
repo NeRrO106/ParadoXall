@@ -20,6 +20,8 @@ function Footer(){
                             <li><a href="/termeni-conditii">Termenii si conditii</a></li>
                             <li><a href="/politici">Politici de confidentialitate</a></li>
                             <li><a href="/info">Informatii livrare</a></li>
+                            <li><a href="/valori-nutritionale">Valori nutritionale</a></li>
+                            <li><a href="/alergeni">Alergeni</a></li>
                         </ul>
                     </div>
                     <div className="contact-info">

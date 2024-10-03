@@ -13,7 +13,9 @@ import Checkout from './frontend/components/pages/CheckOut/CheckOut';
 import Footer from './frontend/components/footer/footer';
 import Politici from './frontend/components/footer/politici';
 import Termeni from './frontend/components/footer/termeni';
-
+import Nutrienti from './frontend/components/footer/valori-nutritionale';
+import Alergeni from './frontend/components/footer/alergeni';
+import Info from './frontend/components/footer/informatii';
 
 function App() {
 
@@ -35,6 +37,9 @@ function App() {
             <Route path = "checkout" element={<Checkout/>} />
             <Route path = "politici" element={<Politici/>} />
             <Route path = "termeni-conditii" element={<Termeni/>} />
+            <Route path = "valori-nutritionale" element={<Nutrienti/>} />
+            <Route path = "alergeni" element={<Alergeni/>} />
+            <Route path = "info" element={<Info/>} />
           </Routes>
           <CartPage isOpen={isCartOpen} onClose={toggleCart}/>
           <Footer/>

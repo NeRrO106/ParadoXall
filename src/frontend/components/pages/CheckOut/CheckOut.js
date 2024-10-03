@@ -33,6 +33,8 @@ const Checkout = () =>{
         "satu nou": 100,
         "cuza vodă": 100,
         "mircea vodă": 150,
+        "cuza voda": 100,
+        "mircea voda": 150,
         "tortomanu": 120,
         "valea dacilor": 100,
     };

@@ -61,7 +61,13 @@ const ProductList = ({ filter }) => {
                 {filteredProducts.map(product => (
                     <div className="col-md-4 mb-4" key={product.product_id}>
                         <div className="card" style={{ width: '18rem' }}>
-                            <img src={product.image_url} className="card-img-top" alt={product.name} />
+                            <img 
+                                src={product.image_url} 
+                                className="card-img-top" 
+                                alt={product.name} 
+                                width="95%"
+                                height="200px"   
+                            />
                             <div className="card-body">
                                 <h5 className="card-title">{product.name}</h5>
                                 <p className="card-text">Pret: {product.price} lei</p>

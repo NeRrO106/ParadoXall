@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import logoImg from "../../../img/logo.webp";
 import "./footer.css";
 
 function Footer() {
+
+  const [showMap, setShowMap] = useState(false);
+
   return (
     <footer className="footer">
       <div className="container-footer">
@@ -74,15 +77,28 @@ function Footer() {
             </p>
           </div>
           <div className="google-maps">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22785.07163823079!2d26.040882653613288!3d44.45092437945913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201784e5dc405%3A0xc5e6a8e54ad7b2fa!2sFormer%20Monument%20Island%20Lake%20Morii!5e0!3m2!1sen!2sro!4v1728455900029!5m2!1sen!2sro"
-              width="600"
-              height="450"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="google maps"
-            ></iframe>
+            {
+              !showMap ? (
+                <div>
+                  <img 
+                    src="https://via.placeholder.com/600x450?text=Click+to+view+map" 
+                    alt="Google Map Placeholder"
+                    style={{ cursor: 'pointer', width: '200px', height: '200px', color:'#fff'}}
+                    onClick={() => setShowMap(true)}
+                  />
+                </div>
+              ) : (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22785.07163823079!2d26.040882653613288!3d44.45092437945913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201784e5dc405%3A0xc5e6a8e54ad7b2fa!2sFormer%20Monument%20Island%20Lake%20Morii!5e0!3m2!1sen!2sro!4v1728455900029!5m2!1sen!2sro"
+                  width="600"
+                  height="450"
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="google maps"
+                ></iframe>
+              )
+            }
           </div>
         </div>
         <div className="legal">

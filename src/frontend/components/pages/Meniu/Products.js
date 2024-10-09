@@ -59,8 +59,8 @@ const ProductList = ({ filter }) => {
         <div className="container mt-4">
             <div className="row">
                 {filteredProducts.map(product => (
-                    <div className="col-md-4 mb-4" key={product.product_id}>
-                        <div className="card" style={{ width: '18rem' }}>
+                    <div className="col-md-4" key={product.product_id}>
+                        <div className="card">
                             <img 
                                 src={product.image_url} 
                                 className="card-img-top" 

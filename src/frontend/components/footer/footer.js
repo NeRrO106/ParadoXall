@@ -8,7 +8,7 @@ function Footer() {
       <div className="container-footer">
         <div className="footer-content">
           <div className="logo-info">
-            <img src={logoImg} alt="restaurant logo" />
+            <img loading='lazy' src={logoImg} alt="restaurant logo" />
             <p>
               Restaurantul nostru iti livreaza rapid mancare acasa, la birou sau
               oriunde te-ai afla

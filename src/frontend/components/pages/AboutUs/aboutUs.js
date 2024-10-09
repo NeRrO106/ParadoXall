@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Contact/contact.css';
-import logoImg from '../../../../img/logo.png';
+import logoImg from '../../../../img/logo.webp';
 
 function AboutUs() {
   return (

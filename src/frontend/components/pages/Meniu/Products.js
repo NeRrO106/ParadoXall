@@ -2,56 +2,52 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Meniu/Products.css';
 
-const ProductList = ({ filter }) =>{
+const ProductList = ({ filter }) => {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [visibleCount, setVisibleCount] = useState(20); // Numărul de produse vizibile
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
-    useEffect(() =>{
+    useEffect(() => {
         const url = `${apiUrl}/products/`;
 
         fetch(url)
             .then(response => response.json())
             .then(data => {
                 setProducts(data);
-                setFilteredProducts(data.slice(0,20));
+                setFilteredProducts(data.slice(0, visibleCount)); // Începe cu un număr de produse vizibile
             })
-            .catch(error => console.error('Error fetchin products', error));
+            .catch(error => console.error('Error fetching products', error));
+    }, [apiUrl, visibleCount]);
 
-    },[apiUrl]);
-
-    useEffect(() =>{
-        if(filter === 'all'){
-            setFilteredProducts(products.slice(0,20));
+    useEffect(() => {
+        if (filter === 'all') {
+            setFilteredProducts(products.slice(0, visibleCount));
+        } else {
+            setFilteredProducts(products.filter(product => product.category === filter).slice(0, visibleCount));
         }
-        else{
-            setFilteredProducts(products.filter(product => product.category === filter).slice(0,20));
-        }
-    }, [filter, products])
+    }, [filter, products, visibleCount]);
 
-    const loadMoreProducts = useCallback(() =>{
-        if(loading) return;
+    const loadMoreProducts = useCallback(() => {
+        if (loading || filteredProducts.length >= products.length) return; // Previne încărcarea dacă toate produsele sunt deja vizibile
         setLoading(true);
-        setTimeout(() =>{
-            setFilteredProducts(prev => [
-                ...prev,
-                ...products.slice(prev.length, prev.length + 10)
-            ]);
+        setTimeout(() => {
+            setVisibleCount(prev => prev + 10); // Crește numărul de produse vizibile
             setLoading(false);
         }, 1000);
-    }, [loading, products]);
+    }, [loading, filteredProducts.length, products.length]);
 
-    const handleScroll = useCallback(() =>{
-        if(window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+    const handleScroll = useCallback(() => {
+        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
         loadMoreProducts();
     }, [loadMoreProducts]);
 
-    useEffect(() =>{
+    useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-        return() => window.removeEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 
     const handleClick = (productId) => {
@@ -65,7 +61,7 @@ const ProductList = ({ filter }) =>{
                 {filteredProducts.map(product => (
                     <div className="col-md-4 mb-4" key={product.product_id}>
                         <div className="card" style={{ width: '18rem' }}>
-                            <img loading="lazy" src={product.image_url} className="card-img-top" alt={product.name}/>
+                            <img src={product.image_url} className="card-img-top" alt={product.name} />
                             <div className="card-body">
                                 <h5 className="card-title">{product.name}</h5>
                                 <p className="card-text">Pret: {product.price} lei</p>
@@ -83,6 +79,6 @@ const ProductList = ({ filter }) =>{
             {loading && <p>Se incarca mai multe produse...</p>}
         </div>
     );
-
 };
-export default ProductList
+
+export default ProductList;

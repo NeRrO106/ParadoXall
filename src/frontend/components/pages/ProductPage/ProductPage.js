@@ -75,7 +75,13 @@ const ProductPage = ({ toggleCart }) => {
             <div className="container mt-4">
                 <div className="row">
                     <div className="col-md-6">
-                        <img src={product.image_url} className="img-fluid" alt={product.name} />
+                        <img 
+                            src={product.image_url} 
+                            className="img-fluid" 
+                            alt={product.name} 
+                            width="100%"
+                            height="auto"
+                            />
                     </div>
                     <div className="col-md-6">
                         <div className="description">

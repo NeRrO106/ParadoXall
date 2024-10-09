@@ -77,8 +77,8 @@ const ProductPage = ({ toggleCart }) => {
                             src={product.image_url} 
                             className="img-fluid" 
                             alt={product.name} 
-                            width="100%"
-                            height="auto"
+                            width= "500px"
+                            height= "270px"
                             />
                     </div>
                     <div className="col-md-6">

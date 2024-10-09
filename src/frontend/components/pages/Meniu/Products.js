@@ -5,7 +5,7 @@ import '../Meniu/Products.css';
 const ProductList = ({ filter }) => {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const [visibleCount, setVisibleCount] = useState(20); // Numărul de produse vizibile
+    const [visibleCount, setVisibleCount] = useState(10); // Numărul de produse vizibile
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 

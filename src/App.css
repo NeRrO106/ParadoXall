@@ -67,8 +67,8 @@ body {
         flex-direction: column;
     }
     .logo img{
-        width: 300px !important;
-        height: 300px !important;
+        width: 200px !important;
+        height: 200px !important;
     }
 }
 @media (max-width: 768px) {

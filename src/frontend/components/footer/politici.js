@@ -5,7 +5,7 @@ function Politici(){
     return(
         <div className="politici-container">
             <h1>Politica de Confidențialitate și Protecție a Datelor</h1>
-            <p> <strong>ParadoXall</strong> (denumit în continuare "noi" sau "site-ul") se angajează să protejeze confidențialitatea și securitatea datelor personale ale vizitatorilor și utilizatorilor site-ului nostru. Această politică de confidențialitate explică modul în care colectăm, utilizăm, stocăm și protejăm datele personale.</p>
+            <p> <strong>Restaurant</strong> (denumit în continuare "noi" sau "site-ul") se angajează să protejeze confidențialitatea și securitatea datelor personale ale vizitatorilor și utilizatorilor site-ului nostru. Această politică de confidențialitate explică modul în care colectăm, utilizăm, stocăm și protejăm datele personale.</p>
             <h2>1. Colectarea Datelor Personale</h2>
             <p>
                 Colectăm date personale de la utilizatori în următoarele situații:
@@ -24,7 +24,7 @@ function Politici(){
             </p>
             <h2>3. Securitatea Datelor</h2>
             <p>
-                <strong>ParadoXall</strong> se angajează să protejeze datele personale ale utilizatorilor:
+                <strong>Restaurant</strong> se angajează să protejeze datele personale ale utilizatorilor:
                 <ul>
                     <li><strong>Măsuri de securitate:</strong> Utilizăm tehnologia de criptare și măsuri de securitate pentru a proteja datele personale.</li>
                     <li><strong>Acces limitat:</strong> Datele personale sunt accesibile doar angajaților autorizați și numai în scopul pentru care au fost colectate.</li>

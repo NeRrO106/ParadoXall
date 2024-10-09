@@ -45,7 +45,7 @@ const CartPage = ({ isOpen, onClose }) => {
                         ))}
                         <div className="button-container">
                             <p>Subtotal:{subTotal} lei</p>
-                            <button className="btn btn-custom-cart" onClick={() => handleCheckout()}>Finalizeaza comanda</button>
+                            <button className="btn btn-custom" onClick={() => handleCheckout()}>Finalizeaza comanda</button>
                         </div>
                     </ul>
                 )}

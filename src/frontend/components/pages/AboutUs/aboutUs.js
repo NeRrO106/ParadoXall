@@ -1,11 +1,11 @@
 import React from 'react';
-import '../AboutUs/aboutUs.css';
+import '../Contact/contact.css';
 import logoImg from '../../../../img/logo.png';
 
 function AboutUs() {
   return (
     <div>
-      <div className="about-us">
+      <div className="contact">
         <h1>Despre Noi</h1>
       </div>
       <div className='container'>

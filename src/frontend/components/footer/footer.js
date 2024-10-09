@@ -1,59 +1,89 @@
 import React from "react";
-import logoImg from '../../../img/logo.png'
-import './footer.css'
+import logoImg from "../../../img/logo.png";
+import "./footer.css";
 
-
-function Footer(){
-
-    return(
-        <footer className='footer'>
-            <div className="container-footer">
-                <div className="footer-content">
-                    <div className="logo-info">
-                        <img src={logoImg} alt="restaurant logo"/>
-                        <p>ParadoXall iti livreaza rapid mancare acasa, la birou sau oriunde te-ai afla</p>
-                    </div>
-                    <div className="util-link">
-                        <p>Link-uri utile:</p>
-                        <ul>
-                            <li><a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer">ANPC</a></li>
-                            <li><a href="/termeni-conditii">Termenii si conditii</a></li>
-                            <li><a href="/politici">Politici de confidentialitate</a></li>
-                            <li><a href="/info">Informatii livrare</a></li>
-                            <li><a href="/valori-nutritionale">Valori nutritionale</a></li>
-                            <li><a href="/alergeni">Alergeni</a></li>
-                        </ul>
-                    </div>
-                    <div className="contact-info">
-                        <p>Contact:</p>
-                        <p>Urmareste-ne: <a href="https://www.facebook.com/semaforbistro" target="_blank" rel="noopener noreferrer">Facebook</a> </p>
-                        <p>Email: <a href="mailto:lasemafor.medgidia@gmail.com">lasemafor.medgidia@gmail.com</a> </p>
-                        <p>Telefon: <a href="tel:+40724 855 575">0724 855 575</a> </p>
-                        <p>Adresa: Tudor Vladimirescu, Medgidia, Romania, 905600</p>
-                        <p>
-                            Ore de functionare:
-                            <span>  L-D: 9:00 - 22:00</span>
-                        </p>
-                    </div>
-                    <div className="google-maps">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d719.6701823942294!2d28.269210243961425!3d44.2488479092623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40ba91a1e4b0386d%3A0xf87ef7a3a1f70ba8!2sParadoXall!5e0!3m2!1sen!2sro!4v1725265105817!5m2!1sen!2sro" 
-                            title="location"
-                            width="300" 
-                            height="300" 
-                            allowFullScreen="" 
-                            loading="lazy" 
-                            referrerPolicy="no-referrer-when-downgrade"
-                        >
-                        </iframe>
-                    </div>
-                </div>
-                <div className="legal">
-                    <p>&copy; 2024 ParadoXall Delivery Medgidia. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    );
-
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container-footer">
+        <div className="footer-content">
+          <div className="logo-info">
+            <img src={logoImg} alt="restaurant logo" />
+            <p>
+              Restaurantul nostru iti livreaza rapid mancare acasa, la birou sau
+              oriunde te-ai afla
+            </p>
+          </div>
+          <div className="util-link">
+            <p>Link-uri utile:</p>
+            <ul>
+              <li>
+                <a
+                  href="https://anpc.ro/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ANPC
+                </a>
+              </li>
+              <li>
+                <a href="/termeni-conditii">Termenii si conditii</a>
+              </li>
+              <li>
+                <a href="/politici">Politici de confidentialitate</a>
+              </li>
+              <li>
+                <a href="/info">Informatii livrare</a>
+              </li>
+              <li>
+                <a href="/valori-nutritionale">Valori nutritionale</a>
+              </li>
+              <li>
+                <a href="/alergeni">Alergeni</a>
+              </li>
+            </ul>
+          </div>
+          <div className="contact-info">
+            <p>Contact:</p>
+            <p>
+              Urmareste-ne:{" "}
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook
+              </a>{" "}
+            </p>
+            <p>
+              Email: <a href="mailto:">Gamil</a>{" "}
+            </p>
+            <p>
+              Telefon: <a href="tel:+40787531949">0787531949</a>{" "}
+            </p>
+            <p>Adresa: </p>
+            <p>
+              Ore de functionare:
+              <span> L-D: 9:00 - 22:00</span>
+            </p>
+          </div>
+          <div className="google-maps">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22785.07163823079!2d26.040882653613288!3d44.45092437945913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201784e5dc405%3A0xc5e6a8e54ad7b2fa!2sFormer%20Monument%20Island%20Lake%20Morii!5e0!3m2!1sen!2sro!4v1728455900029!5m2!1sen!2sro"
+              width="600"
+              height="450"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="google maps"
+            ></iframe>
+          </div>
+        </div>
+        <div className="legal">
+          <p>&copy; 2024 Restaurant Delivery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
 }
 export default Footer;

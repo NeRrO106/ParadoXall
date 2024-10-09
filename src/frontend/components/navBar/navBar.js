@@ -19,7 +19,7 @@ function NavBar({toggleCart}){
     return(
         <nav className="navbar navbar-expand-lg navbar-light navbar-custom py-3 px-4">
             <div className="container-fluid">
-                <NavLink className="navbar-brand text-light fs-3 " to="/">ParadoXall</NavLink>
+                <NavLink className="navbar-brand text-light fs-3 " to="/">Restaurant Delivery</NavLink>
                 <button 
                     className="navbar-toggler bg-light" 
                     type="button" 

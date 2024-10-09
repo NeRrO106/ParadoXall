@@ -41,7 +41,7 @@ const ProductList = ({ filter }) => {
     }, [loading, filteredProducts.length, products.length]);
 
     const handleScroll = useCallback(() => {
-        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+        if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2) return;
         loadMoreProducts();
     }, [loadMoreProducts]);
 

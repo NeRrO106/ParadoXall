@@ -73,7 +73,7 @@
     background-color: var(--highlight);
     color: var(--text-light); 
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .card {
         margin: 1rem auto;
         max-width: 90%;

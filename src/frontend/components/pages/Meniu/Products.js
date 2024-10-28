@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Meniu/Products.css';
 
 const ProductList = ({ filter }) => {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const [visibleCount, setVisibleCount] = useState(10); // Numărul de produse vizibile
-    const [loading, setLoading] = useState(false);
+    /*const [visibleCount, setVisibleCount] = useState(10); // Numărul de produse vizibile
+    const [loading, setLoading] = useState(false);*/
     const navigate = useNavigate();
 
     const apiUrl = process.env.REACT_APP_API_BASE_URL;
@@ -18,20 +18,21 @@ const ProductList = ({ filter }) => {
             .then(response => response.json())
             .then(data => {
                 setProducts(data);
-                setFilteredProducts(data.slice(0, visibleCount)); // Începe cu un număr de produse vizibile
+                setFilteredProducts(data);
             })
             .catch(error => console.error('Error fetching products', error));
-    }, [apiUrl, visibleCount]);
+    }, [apiUrl]);
 
-    useEffect(() => {
-        if (filter === 'all') {
-            setFilteredProducts(products.slice(0, visibleCount));
-        } else {
-            setFilteredProducts(products.filter(product => product.category === filter).slice(0, visibleCount));
+    useEffect(() =>{
+        if(filter === 'all'){
+            setFilteredProducts(products);
         }
-    }, [filter, products, visibleCount]);
+        else{
+            setFilteredProducts(products.filter(product => product.category === filter));
+        }
+    }, [filter, products])
 
-    const loadMoreProducts = useCallback(() => {
+    /*const loadMoreProducts = useCallback(() => {
         if (loading || filteredProducts.length >= products.length) return; // Previne încărcarea dacă toate produsele sunt deja vizibile
         setLoading(true);
         setTimeout(() => {
@@ -49,7 +50,7 @@ const ProductList = ({ filter }) => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
-
+*/
     const handleClick = (productId) => {
         window.scrollTo(0, 0);
         navigate(`/product/${productId}`);
@@ -82,7 +83,6 @@ const ProductList = ({ filter }) => {
                     </div>
                 ))}
             </div>
-            {loading && <p>Se incarca mai multe produse...</p>}
         </div>
     );
 };

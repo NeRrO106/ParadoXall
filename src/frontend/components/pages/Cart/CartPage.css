@@ -17,15 +17,15 @@
 }
 
 .cart-panel .text {
-    color: #fff;
+    color: var(--bg-light);
     font-size: 1.3rem;
     text-align: center;
     margin: 20px 0;
 }
 
 .close-btn {
-    background-color: #f43434;
-    color: #fff;
+    background-color: var(--highlight);
+    color: var(--text-light);
     border: none;
     border-radius: 50%;
     width: 30px;
@@ -50,7 +50,7 @@
     margin-top: 45px;
     margin-bottom: 20px;
     font-size: 24px;
-    color: #fff;
+    color: var(--text-light);
 }
 
 .cart-panel p {
@@ -85,7 +85,7 @@
 
 .cart-item-details p {
     margin: 0;
-    color: #000;
+    color: var(--text-dark);
     font-weight: bold;
 }
 
@@ -113,7 +113,7 @@
 
 .button-container p {
     font-weight: bold;
-    color: #fff;
+    color: var(--text-light);
     margin-bottom: 10px;
     margin-left: -100px;
 }

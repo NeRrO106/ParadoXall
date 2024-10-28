@@ -7,7 +7,7 @@
 .contact h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-light);
 }
 
 .container {
@@ -37,7 +37,7 @@
 }
 .info{
     border: 2px solid #333;
-    background-color: rgba(51, 51, 51, 0.65);
+    background-color: var(--bg-dark);
     border-radius: 8px;
     max-width: 400px;
     margin: 30px;
@@ -45,12 +45,12 @@
     max-width: fit-content;
 }
 .info p{
-    color: #fff;
+    color: var(--text-light);
     font-weight: bold;
     font-size: 42;
 }
 .info a{
-    color: #fff;
+    color: var(--text-light);
     text-decoration: none;
 }
 .info a:hover{

@@ -65,7 +65,7 @@ function Footer() {
               </a>{" "}
             </p>
             <p>
-              Email: <a href="mailto:">Gamil</a>{" "}
+              Email: <a href="mailto:">Gmail</a>{" "}
             </p>
             <p>
               Telefon: <a href="tel:+40787531949">0787531949</a>{" "}

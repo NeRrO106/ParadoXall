@@ -11,10 +11,11 @@
     background-color: #333;
     border: 1px solid #333;
     border-radius: 50px;
-    box-sizing: 0 4px 8px rgba(0, 0, 0, 0.25);
+    box-sizing: var(--box-shadow);
     transition: transform 0.2s, box-shadow 0.2s;
     min-height: 250px;
     width: 18rem;
+    justify-content: space-around;
 }
 .card:hover{
     transform: translateY(-5px);
@@ -40,12 +41,12 @@
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 0.75rem;
-    color: #fff;
+    color: var(--text-light);
 }
 .card-text{
     font-size: 22px;
     font-weight: bold;
-    color:#fff;
+    color:var(--text-light);
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
@@ -53,8 +54,8 @@
 }
 
 .btn-custom-card{
-    background-color: #f43434;
-    color: #fff;
+    background-color: var(--highlight);
+    color: var(--text-light);
     border-radius: 50px;
     padding: 0.3rem .7rem;
     display: flex;
@@ -63,13 +64,13 @@
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 .btn-custom-card:hover{
-    background-color: #f43434;
-    color: #fff;
+    background-color: var(--highlight);
+    color: var(--text-light);
     transform: translateY(-5px);
 }
 .btn-custom-card:focus{
-    background-color: #f43434;
-    color: #fff; 
+    background-color: var(--highlight);
+    color: var(--text-light); 
 }
 @media (max-width: 768px) {
     .card {

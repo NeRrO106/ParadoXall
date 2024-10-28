@@ -1,13 +1,13 @@
 .checkout-header {
     padding: 10px;
-    background-color: rgba(51, 51, 51, 0.5);
+    background-color: var(--bg-light-dark);
     text-align: center;
 }
 
 .checkout-header h1 {
     font-size: 1.7rem;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-light);
 }
 .checkout-content{
     display: flex;
@@ -30,7 +30,7 @@
     flex-direction: column;
 }
 .custom-ul p{
-    color: #fff;
+    color: var(--text-light);
     font-weight: bold;
     font-size: 30px;
     text-align: start;
@@ -41,7 +41,7 @@
     flex-direction: row;
 }
 .custom-ul li p{
-    color: black !important;
+    color: var(--text-dark)!important;
     font-weight: bold;
     font-size: 0.9rem;
     text-align: center;
@@ -49,7 +49,7 @@
 }
 
 .subtotal-custom{
-    color: #fff;
+    color: var(--text-light);
     text-align: center;
     font-weight: bold;
     font-size: 30px;
@@ -87,29 +87,29 @@
     background-color: var(--bg-dark);
     border: none;
     margin: 0 auto;
-    color: #fff;
+    color: var(--text-light);
     font-weight: bold;
     width: 100%;
 }
 
 .form-control:hover, .form-select:hover {
-    background-color: black;
-    color: #fff;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
 }
 
 .form-label {
     font-weight: bold;
-    color: black;
+    color: var(--text-dark);
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
 .form-check-label{
-    color: black;
+    color: var(--text-dark);
     font-weight: bold;
 }
 .form-check-label a{
     text-decoration: none;
-    color: black;
+    color: var(--text-dark);
 }
 .form-check-label a:hover{
     color: var(--text-light);

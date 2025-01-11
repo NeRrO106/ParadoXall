@@ -6,7 +6,6 @@ import './CheckOut.css';
 const Checkout = () =>{
     const { cartItems, clearCart } = useCart();
     const navigate = useNavigate();
-
     const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
     const [error, setError] = useState('');
@@ -18,7 +17,7 @@ const Checkout = () =>{
         street: '',
         block: '',
         nr:'',
-        city: '',
+        city: 'Medgidia',
         region: 'Constanta',
         info: '',
         paymentMethod: 'cash',
@@ -28,15 +27,13 @@ const Checkout = () =>{
     });
 
     const minimumOrders = {
-        "castelu": 120,
-        "castelul": 120,
-        "satu nou": 100,
-        "cuza vodă": 100,
-        "mircea vodă": 150,
-        "cuza voda": 100,
-        "mircea voda": 150,
-        "tortomanu": 120,
-        "valea dacilor": 100,
+        "Medgidia": 0,
+        "Castelul": 120,
+        "Satu Nou": 100,
+        "Cuza Voda": 100,
+        "Mircea Voda": 150,
+        "Tortomanu": 120,
+        "Valea Dacilor": 100,
     };
 
     const handleChange = (e) => {
@@ -62,7 +59,7 @@ const Checkout = () =>{
         }
         if(formData.deliveryMethod === 'delivery'){
             const cityKey = formData.city.toLowerCase();
-            if(minimumOrders[cityKey] && subTotal < minimumOrders[cityKey]){
+            if(minimumOrders[cityKey] && subTotal <= minimumOrders[cityKey]){
                 message = `Comanda minima pentru localitatea ${formData.city} este de ${minimumOrders[cityKey]} lei.`;
             }
         }
@@ -71,26 +68,27 @@ const Checkout = () =>{
             setError(message);
             return;
         }
-
-        const fullAddress = `${formData.street}, Bloc: ${formData.block}, Numar: ${formData.nr}`
-
+        const fullAddress = `Strada: ${formData.street}, Bloc: ${formData.block}, Numar: ${formData.nr}`
         const orderData = {
             customer_name: formData.name,
             phone_number: formData.phoneNumber,
             email: formData.email,
-            delivery_methods: formData.deliveryMethod,
+            delivery_method: formData.deliveryMethod,
             address: formData.deliveryMethod === 'pickup' ? 'ridicare' : fullAddress,
             city: formData.deliveryMethod === 'pickup' ? 'ridicare' : formData.city,
             region: formData.region,
             payment_methods: formData.paymentMethod,
             additional_info: formData.info,
             total_amount: subTotal,
+            notifications: formData.newsLetter === true ? 'yes' : 'no',
+            is_completed: 'no',
             order_items: cartItems.map(item =>({
-                product: item.product_id,
+                product: Number(item.productId),
                 quantity: item.quantity,
                 selected_option: item.selectedOption || ''
             }))
         };
+        console.log(orderData.is_completed);
         try{
             const response = await fetch(`${apiUrl}/create-order/`, {
                 method: 'POST',
@@ -100,7 +98,6 @@ const Checkout = () =>{
                 },
                 body: JSON.stringify(orderData)
             });
-
             const textResponse = await response.text();
             console.log('Server Response:', textResponse);
             const data = JSON.parse(textResponse);
@@ -142,8 +139,8 @@ const Checkout = () =>{
                 <div className='border'>
                     <ul className="list-group mb-4 custom-ul">
                         <p>Cosul tau</p>
-                        {cartItems.map((item, index) => (
-                            <li key={index} className="list-group-item d-flex align-items-center h-25">
+                        {cartItems.map((item, product_id) => (
+                            <li key={product_id} className="list-group-item d-flex align-items-center h-25">
                                 <img src={item.image_url} alt={item.name} className="me-3" style={{ width: '50px', height: '50px', objectFit: 'cover' }} />
                                 <div className="d-flex flex-column">
                                     <p className="mb-2">{item.name}</p>
@@ -238,14 +235,21 @@ const Checkout = () =>{
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="city" className="form-label">Localitate(*)</label>
-                                        <input 
-                                            type="text" 
-                                            id="city" 
-                                            name="city" 
-                                            className="form-control" 
-                                            value={formData.city} 
-                                            onChange={handleChange} 
-                                        />
+                                    <select 
+                                        id="city" 
+                                        name="city" 
+                                        className="form-select" 
+                                        value={formData.city} 
+                                        onChange={handleChange}
+                                    >
+                                        <option value="Medgidia">Medgidia</option>
+                                        <option value="Castelul">Castelul</option>
+                                        <option value="Satu Nou">Satu Nou</option>
+                                        <option value="Cuza Voda">Cuza Voda</option>
+                                        <option value="Mircea Voda">Mircea Voda</option>
+                                        <option value="Tortomanu">Tortomanu</option>
+                                        <option value="Valea Dacilor">Valea Dacilor</option>
+                                    </select>
                                 </div>
                             </>
                         )}

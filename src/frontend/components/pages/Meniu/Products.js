@@ -73,7 +73,7 @@ const ProductList = ({ filter }) => {
                                 <h5 className="card-title">{product.name}</h5>
                                 <p className="card-text">Pret: {product.price} lei</p>
                                 <button
-                                    className="btn btn-custom-card"
+                                    className=" btn-custom-card"
                                     onClick={() => handleClick(product.product_id)}
                                 >
                                     Vezi produsul

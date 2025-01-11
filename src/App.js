@@ -17,6 +17,15 @@ import Nutrienti from './frontend/components/footer/valori-nutritionale';
 import Alergeni from './frontend/components/footer/alergeni';
 import Info from './frontend/components/footer/informatii';
 
+
+/* Admin panel */
+import Admin from './frontend/components/admin/admin';
+import NavBarAdmin from './frontend/components/admin/navbar/adminNavBar';
+import { AuthProvider } from './frontend/components/admin/auth/AuthContext';
+import LoginPage from './frontend/components/admin/auth/Login';
+import PrivateRoute from './frontend/components/admin/auth/PrivateRoute';
+
+
 function App() {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -27,23 +36,46 @@ function App() {
 
   return (
     <Router>
+      <AuthProvider>
         <CartProvider>
-          <NavBar toggleCart={toggleCart}/>
           <Routes>
-            <Route path = "/" element={<AboutUs />} />
-            <Route path = "meniu" element={<Meniu />} />
-            <Route path = "contact" element={<Contact />} />
-            <Route path = "product/:productId" element={<ProductPage toggleCart={toggleCart}/>} />
-            <Route path = "checkout" element={<Checkout/>} />
-            <Route path = "politici" element={<Politici/>} />
-            <Route path = "termeni-conditii" element={<Termeni/>} />
-            <Route path = "valori-nutritionale" element={<Nutrienti/>} />
-            <Route path = "alergeni" element={<Alergeni/>} />
-            <Route path = "info" element={<Info/>} />
+            <Route
+              path="/*"
+              element={
+                <>
+                  <NavBar toggleCart={toggleCart} />
+                  <Routes>
+                    <Route path="/" element={<AboutUs />} />
+                    <Route path="meniu" element={<Meniu />} />
+                    <Route path="contact" element={<Contact />} />
+                    <Route path="product/:productId" element={<ProductPage toggleCart={toggleCart} />} />
+                    <Route path="checkout" element={<Checkout />} />
+                    <Route path="politici" element={<Politici />} />
+                    <Route path="termeni-conditii" element={<Termeni />} />
+                    <Route path="valori-nutritionale" element={<Nutrienti />} />
+                    <Route path="alergeni" element={<Alergeni />} />
+                    <Route path="info" element={<Info />} />
+                  </Routes>
+                  <CartPage isOpen={isCartOpen} onClose={toggleCart} />
+                  <Footer />
+                </>
+              }
+            />
+            <Route path='/login' element={<LoginPage/>} />
+            <Route
+              path="/admin/*"
+              element={
+                <>
+                  <PrivateRoute>
+                    <NavBarAdmin/>
+                    <Admin />
+                  </PrivateRoute>
+                </>
+              }
+            />
           </Routes>
-          <CartPage isOpen={isCartOpen} onClose={toggleCart}/>
-          <Footer/>
         </CartProvider>
+      </AuthProvider>
     </Router>
   );
 }

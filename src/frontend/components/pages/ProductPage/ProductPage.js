@@ -40,14 +40,16 @@ const ProductPage = ({ toggleCart }) => {
     const decrementQuantity = () => setQuantity(q => (q > 1 ? q - 1 : 1));
 
     const handleAddToCart = () => {
-        if (product) {
-            const productToAdd = { ...product, quantity };
-            if(selectedOption !== "Selecteaza optiune"){
-                productToAdd.selectedOption = selectedOption;
-            }
-            addToCart(productToAdd)
-            toggleCart();
-        }
+        if (!product) return;
+        const productToAdd = { 
+            ...product,
+            productId,
+            quantity,
+            selectedOption,
+        };
+        console.log('Product to Add:', productToAdd);
+        addToCart(productToAdd);
+        toggleCart(false);
     };
 
     if (!product) {

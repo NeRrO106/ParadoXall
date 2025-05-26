@@ -1,0 +1,65 @@
+$primary-color: #007bff;
+$bg-color: #1e1e2f;
+$text-color: #fff;
+$input-bg: rgba(255, 255, 255, 0.05);
+$input-border: rgba(255, 255, 255, 0.2);
+
+.add-product-form {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: $bg-color;
+  color: $text-color;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid $input-border;
+    background-color: $input-bg;
+    color: $text-color;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 6px $primary-color;
+    }
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 0.85rem;
+    background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, lighten($primary-color, 5%), $primary-color);
+      box-shadow: 0 0 12px $primary-color;
+      transform: scale(1.02);
+    }
+  }
+}

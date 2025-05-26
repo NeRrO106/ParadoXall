@@ -1,0 +1,70 @@
+@import '../../../../variable.scss';
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.product-card {
+  background-color: $bg-dark;
+  border: 1px solid #333;
+  border-radius: 30px;
+  width: 18rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+
+  img {
+    width: 95%;
+    height: 200px;
+    object-fit: cover;
+    margin: 0.5rem auto;
+    border-radius: 30px;
+    display: block;
+  }
+
+  .card-body {
+    text-align: center;
+    padding: 1rem;
+
+    h5 {
+      font-size: 1.4rem;
+      color: $text-light;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $text-light;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background-color: $highlight;
+      color: $text-light;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        background-color: darken($highlight, 10%);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    width: 90%;
+  }
+}

@@ -1,0 +1,88 @@
+@import '../../../../variable.scss';
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  padding: 2rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  border: 2px solid #ff9900;
+  box-shadow: 0 0 15px #ff9900;
+  transition: transform 0.3s ease;
+}
+
+.login-logo:hover {
+  transform: scale(1.05);
+}
+
+.login-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+
+  .login-input {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: box-shadow 0.3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 8px #ff9900;
+    }
+
+    &::placeholder {
+      color: #bbb;
+    }
+  }
+
+  .login-button {
+    padding: 0.75rem;
+    background: linear-gradient(to right, #ff9900, #ff6600);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+
+    &:hover {
+      background: linear-gradient(to right, #ffa31a, #e65c00);
+      transform: scale(1.03);
+      box-shadow: 0 0 10px #ff6600;
+    }
+  }
+}

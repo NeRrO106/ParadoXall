@@ -1,0 +1,129 @@
+@import '../../../variable.scss';
+.footer {
+  background-color: $bg-dark;
+  color: $text-light;
+  padding: 10px 0;
+  width: 100%;
+
+  .container-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+
+      > div {
+        flex: 1;
+        margin: 5px;
+        min-width: 150px;
+      }
+
+      .logo-info {
+        text-align: center;
+
+        img {
+          height: 200px;
+          width: 200px;
+          margin-bottom: 10px;
+        }
+
+        p {
+          color: $text-light;
+          font-weight: bold;
+        }
+      }
+
+      .util-link {
+        text-align: center;
+
+        p {
+          font-weight: bold;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          li {
+            a {
+              color: $text-light;
+              text-decoration: none;
+              font-weight: bold;
+
+              &:hover {
+                color: $highlight;
+              }
+            }
+          }
+        }
+      }
+
+      .contact-info {
+        p {
+          font-weight: bold;
+
+          a {
+            color: $text-light;
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+              color: $highlight;
+            }
+          }
+        }
+      }
+
+      .google-maps {
+        iframe {
+          border: none;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          border-radius: 8px;
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+
+    .legal {
+      font-weight: bold;
+      text-align: center;
+      a{
+        text-decoration: none;
+        color: $text-light;
+        &:hover {
+          color: $highlight;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 996px) {
+    .container-footer {
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+
+        > div {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+
+      .google-maps iframe {
+        width: 170px;
+        height: 200px;
+      }
+    }
+  }
+}

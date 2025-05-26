@@ -1,0 +1,65 @@
+$bg-dark: #222;
+$text-light: #f9f9f9;
+$bg-light-dark: #333;
+$highlight: #ffd700;
+
+.politici-container {
+  position: relative;
+  margin: 0 10px;
+
+  h1 {
+    padding: 25px;
+    font-size: 2rem;
+    text-align: center;
+    background-color: $bg-dark;
+    color: $text-light;
+  }
+
+  h2 {
+    padding: 10px;
+    font-size: 1.5rem;
+    background-color: $bg-light-dark;
+    color: $text-light;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  h5 {
+    padding: 15px;
+    font-size: 1.1rem;
+    background-color: $bg-light-dark;
+    color: $text-light;
+  }
+
+  p,
+  ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: $bg-light-dark;
+    color: $text-light;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  a {
+    color: $text-light;
+    text-decoration: none;
+
+    &:hover {
+      color: $highlight;
+      text-decoration: underline;
+    }
+  }
+
+  .alergeni-ul {
+    margin-top: -20px !important;
+  }
+}

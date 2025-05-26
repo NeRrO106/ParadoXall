@@ -1,0 +1,12 @@
+@import '../../../../variable.scss';
+.meniu {
+    padding: $padding;
+    background-color: $bg-dark;
+    text-align: center;
+}
+
+.meniu h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $text-light;
+}

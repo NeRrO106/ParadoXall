@@ -1,0 +1,62 @@
+@import '../../../../variable.scss';
+
+.buttons-container {
+  margin: 2rem auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.desktop-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-custom {
+  background-color: $bg-light;
+  color: $text-dark;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $highlight;
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: $highlight;
+    box-shadow: 0 0 0 0.2rem rgba(255, 87, 34, 0.5);
+  }
+}
+
+.mobile-dropdown {
+  display: none;
+  margin-top: 1rem;
+
+  select {
+    padding: 0.6rem;
+    border-radius: 12px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background-color: $bg-light;
+    color: $text-dark;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-buttons {
+    display: none;
+  }
+
+  .mobile-dropdown {
+    display: block;
+  }
+}

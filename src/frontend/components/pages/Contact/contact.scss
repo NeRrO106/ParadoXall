@@ -1,0 +1,85 @@
+@import '../../../../variable.scss';
+
+.contact-wrapper {
+  .contact-header {
+    background-color: $bg-dark;
+    padding: 1rem;
+    text-align: center;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: $text-light;
+    }
+  }
+
+.info {
+  border: 2px solid $text-dark;
+  background-color: $bg-dark;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: $margin;
+  text-align: center;
+  padding: $padding;
+
+
+  p {
+    color: $text-light;
+    font-weight: bold;
+    font-size: $font-size-large;
+  }
+}
+
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    background-color: transparent;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: auto;
+        border: none;
+      }
+    }
+
+    .info {
+      background-color: $bg-dark;
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+
+      p {
+        color: $text-light;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+      }
+
+      a {
+        color: $text-light;
+        text-decoration: none;
+
+        &:hover {
+          color: $highlight;
+        }
+      }
+    }
+  }
+}

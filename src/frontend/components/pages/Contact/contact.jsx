@@ -9,7 +9,7 @@ function Contact() {
       </div>
       <div className="contact-container">
         <div className="logo">
-          <img src={logoImg} alt="logo" />
+          <img className="logo-img" src={logoImg} alt="logo" />
         </div>
         <div className="info">
           <p>Urmărește-ne: <a href='https://www.facebook.com/' target="_blank" rel="noopener noreferrer">Facebook</a></p>

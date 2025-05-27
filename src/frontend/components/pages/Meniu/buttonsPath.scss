@@ -13,13 +13,13 @@
   gap: 1rem;
 }
 
-.btn-custom {
+.btn-custom-menu {
   background-color: $bg-light;
   color: $text-dark;
   font-weight: bold;
   font-size: 1rem;
   padding: 0.6rem 1.2rem;
-  border-radius: 50px;
+  border-radius: 30px;
   border: none;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   cursor: pointer;
@@ -33,7 +33,7 @@
   &:focus {
     outline: none;
     background-color: $highlight;
-    box-shadow: 0 0 0 0.2rem rgba(255, 87, 34, 0.5);
+    box-shadow: 0 0 7px rgba(255, 87, 34, 0.5);
   }
 }
 

@@ -11,7 +11,7 @@ function Buttons({ onFilterChange }) {
     <div className="buttons-container">
       <div className="desktop-buttons">
         {categories.map((cat, index) => (
-          <button key={index} className="btn-custom" onClick={() => onFilterChange(cat)}>
+          <button key={index} className="btn-custom-menu" onClick={() => onFilterChange(cat)}>
             {cat}
           </button>
         ))}
